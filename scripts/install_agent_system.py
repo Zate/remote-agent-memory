@@ -77,15 +77,20 @@ class AgentSystemInstaller:
         parsed = urllib.parse.urlparse(url)
         domain = parsed.hostname
         
-        # Prompt for API key
-        print("\nAPI Key (leave empty to generate):")
-        api_key = getpass.getpass("API Key: ").strip()
+        # Prompt for API key with better security feedback
+        print("\n🔑 API Key Configuration:")
+        print("   Leave empty to auto-generate a secure key")
+        print("   Input will be hidden for security")
+        api_key = getpass.getpass("API Key (hidden): ").strip()
         
         if not api_key:
-            print("   Generating random API key...")
+            print("   🎲 Generating random API key...")
             import secrets
             api_key = secrets.token_urlsafe(32)
-            print(f"   Generated: {api_key}")
+            print("   ✅ Generated secure API key")
+            # Don't show the generated key for security
+        else:
+            print("   ✅ API key received")
             
         # Get client hostname
         hostname = socket.gethostname()
@@ -146,33 +151,42 @@ export CLIENT_HOSTNAME="{self.config['CLIENT_HOSTNAME']}"
         print(f"\n🤖 Processing agent templates...")
         
         self.agents_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Always copy all existing agent files, not just templates
+        existing_agents = list(self.template_dir.glob('*.md'))
         template_files = list(self.template_dir.glob('*.template.md'))
         
-        if not template_files:
-            print("   No template files found, copying existing agents...")
-            # Copy existing agent files
-            existing_agents = list(self.template_dir.glob('*.md'))
-            for agent_file in existing_agents:
-                if not agent_file.name.endswith('.template.md'):
-                    target_file = self.agents_dir / agent_file.name
-                    content = agent_file.read_text()
-                    
-                    # Replace hardcoded values with template references
-                    content = self.remove_hardcoded_values(content)
-                    target_file.write_text(content)
-                    print(f"   Processed: {agent_file.name}")
-        else:
-            # Process template files
-            for template_file in template_files:
-                agent_name = template_file.name.replace('.template.md', '.md')
-                target_file = self.agents_dir / agent_name
+        agents_processed = 0
+        
+        # Process regular agent files (not templates)
+        for agent_file in existing_agents:
+            if not agent_file.name.endswith('.template.md'):
+                target_file = self.agents_dir / agent_file.name
+                content = agent_file.read_text()
                 
-                content = template_file.read_text()
-                # Templates should already use the centralized config approach
-                
+                # Replace hardcoded values with centralized config usage
+                content = self.remove_hardcoded_values(content)
                 target_file.write_text(content)
-                print(f"   Created: {agent_name}")
+                print(f"   Processed: {agent_file.name}")
+                agents_processed += 1
+        
+        # Process template files (for future template-based agents)
+        for template_file in template_files:
+            agent_name = template_file.name.replace('.template.md', '.md')
+            target_file = self.agents_dir / agent_name
+            
+            # Skip if we already processed the regular version
+            if target_file.exists():
+                print(f"   Skipped template (regular version exists): {agent_name}")
+                continue
                 
+            content = template_file.read_text()
+            # Templates should already use the centralized config approach
+            target_file.write_text(content)
+            print(f"   Created from template: {agent_name}")
+            agents_processed += 1
+        
+        print(f"   ✅ Total agents installed: {agents_processed}")
         return True
         
     def remove_hardcoded_values(self, content):
