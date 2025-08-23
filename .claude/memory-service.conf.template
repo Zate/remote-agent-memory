@@ -1,0 +1,13 @@
+# Memory Service Configuration Template
+# Copy to ~/.claude/memory-service.conf and customize
+
+# Memory Service Connection Details
+export MEMORY_SERVICE_URL="{{MEMORY_SERVICE_URL}}"
+export MEMORY_SERVICE_API_KEY="{{MEMORY_SERVICE_API_KEY}}"
+export MEMORY_SERVICE_DOMAIN="{{MEMORY_SERVICE_DOMAIN}}"
+export CLIENT_HOSTNAME="{{CLIENT_HOSTNAME}}"
+
+# Optional: Additional Configuration
+# export MEMORY_SERVICE_TIMEOUT=30
+# export MEMORY_SERVICE_RETRY_COUNT=3
+# export MEMORY_DEFAULT_TAGS="claude-code,autonomous"

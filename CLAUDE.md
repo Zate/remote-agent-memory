@@ -48,6 +48,95 @@ Create `CLAUDE_MEMORY.md` (git-ignored) with your memory service details:
 - **Export Tool**: `./scripts/export_distributable_memories.sh` for network distribution
 - **Documentation**: Keep memory hashes in local files, not in version control
 
+## Autonomous Agent System Tagging Strategy
+
+This project now includes an autonomous agent system that automatically stores and retrieves memories. The system uses consistent tagging strategies for optimal organization and retrieval.
+
+### Core System Tags
+
+**Architecture & Implementation:**
+- `agent-system` - Core autonomous agent system components
+- `sub-agents` - Claude Code sub-agents in .claude/agents/
+- `orchestrator` - Agent orchestration and coordination
+- `autonomous` - Autonomous decision-making capabilities  
+- `intelligence` - Core AI intelligence components
+- `integration-layer` - Integration between agents and memory service
+- `server-integration` - Server extensions and middleware
+
+**Technical Components:**
+- `python-intelligence` - Python AI modules (orchestrator, task decomposer, etc.)
+- `task-decomposer` - Task analysis and decomposition logic
+- `context-builder` - Context assembly and organization
+- `relevance-scorer` - Multi-dimensional relevance scoring
+- `pattern-recognition` - Content pattern detection and analysis
+
+**Functionality Tags:**
+- `autonomous-decisions` - Autonomous decision-making patterns
+- `proactive-assistance` - Proactive context gathering
+- `context-assembly` - Comprehensive context building
+- `multi-dimensional-scoring` - Advanced relevance algorithms
+- `agent-triggers` - Agent invocation patterns and conditions
+
+**Content Type Classification:**
+- `architecture` - System architecture and design decisions
+- `implementation` - Code implementation details  
+- `decision-logic` - Decision-making algorithms and patterns
+- `algorithm` - Scoring, ranking, and processing algorithms
+- `integration` - Integration patterns and server extensions
+- `benefits-summary` - Impact and transformation summaries
+
+**Technology & Domain Tags:**
+- `claude-code` - Claude Code integration and sub-agents
+- `mcp-memory-service` - Memory service integration
+- `yaml` - YAML configuration and frontmatter
+- `system-prompts` - Agent system prompts and instructions
+- `async-await` - Asynchronous programming patterns
+- `production-standards` - Production-ready implementation patterns
+
+### Agent-Specific Tags
+
+**Sub-Agent Types:**
+- `memory-store` - Autonomous memory storage decisions
+- `memory-context` - Task decomposition and context assembly
+- `memory-recall` - Intelligent memory retrieval
+- `debug-context` - Debugging support and error patterns
+- `test-context` - Test creation assistance
+- `memory-health` - System monitoring and diagnostics
+- `memory-consolidate` - Memory maintenance and cleanup
+
+**Decision Detection:**
+- `decision-detection` - Decision pattern recognition
+- `error-detection` - Error pattern recognition  
+- `task-detection` - Task pattern recognition
+- `testing-detection` - Testing scenario recognition
+
+**Quality & Metadata:**
+- `transformation-benefits` - System transformation impact
+- `production-ready` - Production deployment readiness
+- `backward-compatibility` - Compatibility with existing systems
+- `comprehensive-docs` - Complete documentation coverage
+
+### Usage Guidelines
+
+**When Storing Agent System Memories:**
+1. Always include `agent-system` as a primary tag
+2. Add specific component tags (`orchestrator`, `sub-agents`, etc.)
+3. Include functionality tags (`autonomous-decisions`, `context-assembly`)
+4. Add content type classification (`architecture`, `implementation`, etc.)
+5. Include relevant technology tags (`claude-code`, `python-intelligence`)
+
+**For Sub-Agent Related Content:**
+- Use specific agent name tags (`memory-store`, `debug-context`, etc.)
+- Include `sub-agents` and `claude-code` tags
+- Add functionality-specific tags based on agent purpose
+
+**For Implementation Details:**
+- Combine `implementation` with component tags
+- Add technical detail tags (`async-await`, `type-hints`, etc.)
+- Include `production-standards` for robust implementations
+
+This tagging strategy ensures consistent organization and enables the autonomous agent system to effectively find and utilize stored memories for context assembly and decision-making.
+
 ## Overview
 
 MCP Memory Service is a Model Context Protocol server that provides semantic memory and persistent storage capabilities for Claude Desktop using ChromaDB and sentence transformers. The project enables long-term memory storage with semantic search across conversations.
