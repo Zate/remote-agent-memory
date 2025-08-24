@@ -4,7 +4,8 @@
       "Bash(chmod:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "mcp__sequential-thinking__sequentialthinking"
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(cat:*)"
     ],
     "additionalDirectories": [
       "/home/zate/.claude"
