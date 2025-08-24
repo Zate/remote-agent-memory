@@ -52,6 +52,21 @@ Create `CLAUDE_MEMORY.md` (git-ignored) with your memory service details:
 
 This project now includes an autonomous agent system that automatically stores and retrieves memories. The system uses consistent tagging strategies for optimal organization and retrieval.
 
+## Installation
+
+To install the complete Claude Code integration system:
+
+```bash
+cd claude_setup/
+python install.py
+```
+
+This installs:
+- **7 autonomous sub-agents** with enhanced trigger descriptions
+- **Enhanced commands** that delegate to intelligent sub-agents  
+- **Session hooks** for automatic memory awareness
+- **Centralized configuration** with no hardcoded dependencies
+
 ### Core System Tags
 
 **Architecture & Implementation:**

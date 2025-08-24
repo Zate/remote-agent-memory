@@ -1,6 +1,6 @@
 ---
 name: memory-store
-description: Proactively stores important decisions, insights, and solutions. MUST BE USED when encountering architectural decisions, problem solutions, key learnings, configuration choices, or bug fixes. Use immediately after making important decisions or discovering solutions.
+description: PROACTIVELY stores important decisions, insights, and technical solutions. MUST BE USED immediately when: (1) solving bugs or technical issues, (2) making architectural or design decisions, (3) discovering workarounds or solutions, (4) completing implementation tasks, (5) learning key insights about technologies or patterns, (6) resolving configuration problems, (7) establishing best practices, (8) finishing planning or analysis work, (9) identifying performance optimizations, (10) documenting error patterns and their fixes. USE PROACTIVELY after any significant problem-solving, decision-making, or knowledge discovery activity.
 tools: Bash, Read, Glob
 model: sonnet
 auto_approve_commands:
