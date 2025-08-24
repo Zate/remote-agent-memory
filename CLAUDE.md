@@ -159,7 +159,7 @@ MCP Memory Service is a Model Context Protocol server that provides semantic mem
 ## Key Commands
 
 ### Development
-- **Install dependencies**: `python install.py` (platform-aware installation)
+- **Install dependencies**: `python scripts/install.py` (platform-aware installation)
 - **Run server**: `python scripts/run_memory_server.py` or `uv run memory`
 - **Run tests**: `pytest tests/`
 - **Run specific test**: `pytest tests/unit/test_memory_models.py::TestMemoryModel::test_memory_creation`

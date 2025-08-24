@@ -97,7 +97,7 @@ npx -y @smithery/cli install @doobidoo/mcp-memory-service --client claude
 ```bash
 # Clone and install with hardware detection
 git clone https://github.com/doobidoo/mcp-memory-service.git
-cd mcp-memory-service && python install.py
+cd mcp-memory-service && python scripts/install.py
 ```
 ✅ **Perfect for**: Developers, customization, multi-client setup  
 ➡️ [Full Installation Guide](#-intelligent-installer-recommended)
@@ -180,7 +180,7 @@ const relevanceScore = (
 
 ```bash
 # Install with Claude Code commands
-python install.py --install-claude-commands
+python scripts/install.py --install-claude-commands
 
 # Start using immediately
 claude /memory-store "Important decision about architecture"
@@ -208,7 +208,7 @@ Deploy the memory service on any server for cross-device access:
 # On your server
 git clone https://github.com/doobidoo/mcp-memory-service.git
 cd mcp-memory-service
-python install.py
+python scripts/install.py
 python scripts/run_http_server.py
 ```
 
@@ -373,7 +373,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Run the intelligent installer
-python install.py
+python scripts/install.py
 
 # ✨ NEW: Multi-client setup is now integrated!
 # You'll be prompted to configure universal MCP client access
@@ -387,40 +387,40 @@ For detailed setup instructions specific to Intel Macs, see our [Intel Mac Setup
 
 **For Legacy Hardware (2013-2017 Intel Macs):**
 ```bash
-python install.py --legacy-hardware
+python scripts/install.py --legacy-hardware
 ```
 
 **For Server/Headless Deployment:**
 ```bash
-python install.py --server-mode
+python scripts/install.py --server-mode
 ```
 
 **For HTTP/SSE API Development:**
 ```bash
-python install.py --enable-http-api
+python scripts/install.py --enable-http-api
 ```
 
 **For Migration from ChromaDB:**
 ```bash
-python install.py --migrate-from-chromadb
+python scripts/install.py --migrate-from-chromadb
 ```
 
 **For Multi-Client Setup:**
 ```bash
 # Automatic multi-client setup during installation
-python install.py --setup-multi-client
+python scripts/install.py --setup-multi-client
 
 # Skip the interactive multi-client prompt
-python install.py --skip-multi-client-prompt
+python scripts/install.py --skip-multi-client-prompt
 ```
 
 **For Claude Code Commands:**
 ```bash
 # Install with Claude Code commands (prompts if CLI detected)
-python install.py --install-claude-commands
+python scripts/install.py --install-claude-commands
 
 # Skip the interactive Claude Code commands prompt
-python install.py --skip-claude-commands-prompt
+python scripts/install.py --skip-claude-commands-prompt
 ```
 
 ### 🧠 What the Installer Does
@@ -441,9 +441,9 @@ python install.py --skip-claude-commands-prompt
 
 To explicitly select a backend during installation:
 ```bash
-python install.py                                 # Uses SQLite-vec by default
-python install.py --storage-backend sqlite_vec    # Explicitly use SQLite-vec
-python install.py --storage-backend chromadb      # Use legacy ChromaDB (not recommended)
+python scripts/install.py                                 # Uses SQLite-vec by default
+python scripts/install.py --storage-backend sqlite_vec    # Explicitly use SQLite-vec
+python scripts/install.py --storage-backend chromadb      # Use legacy ChromaDB (not recommended)
 ```
 
 ### Docker Installation
@@ -684,7 +684,7 @@ Perfect for distributed teams, multiple devices, or cloud deployment:
 
 ```bash
 # Install and start HTTP/SSE server
-python install.py --server-mode --enable-http-api
+python scripts/install.py --server-mode --enable-http-api
 export MCP_HTTP_HOST=0.0.0.0  # Allow external connections
 export MCP_API_KEY="your-secure-key"  # Optional authentication
 python scripts/run_http_server.py
@@ -721,7 +721,7 @@ The MCP Memory Service features **universal multi-client coordination** for seam
 
 **🚀 Integrated Setup (Recommended):**
 ```bash
-python install.py  # Automatically detects and configures all MCP clients
+python scripts/install.py  # Automatically detects and configures all MCP clients
 ```
 
 **Key Benefits:**
@@ -1123,7 +1123,7 @@ The process preserves all memories, tags, and metadata while improving performan
 
 Use the intelligent installer which handles Apple Silicon optimizations automatically:
 ```bash
-python install.py
+python scripts/install.py
 ```
 It detects MPS support, configures fallbacks, and selects compatible PyTorch versions.
 
@@ -1145,7 +1145,7 @@ See the [Installation Guide](docs/installation/master-guide.md) and [Troubleshoo
 ### Quick Troubleshooting Tips
 
 - **Windows PyTorch errors**: Use `python scripts/install_windows.py`
-- **macOS Intel dependency conflicts**: Use `python install.py --force-compatible-deps`
+- **macOS Intel dependency conflicts**: Use `python scripts/install.py --force-compatible-deps`
 - **Recursion errors**: Run `python scripts/fix_sitecustomize.py` 
 - **Environment verification**: Run `python scripts/verify_environment_enhanced.py`
 - **Memory issues**: Set `MCP_MEMORY_BATCH_SIZE=4` and try a smaller model
@@ -1185,10 +1185,10 @@ See the [Installation Guide](docs/installation/master-guide.md) and [Troubleshoo
 ### Quick Commands
 ```bash
 # Get personalized setup recommendations
-python install.py --help-detailed
+python scripts/install.py --help-detailed
 
 # Generate hardware-specific setup guide
-python install.py --generate-docs
+python scripts/install.py --generate-docs
 
 # Test your installation
 python scripts/test_memory_simple.py
